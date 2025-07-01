@@ -1,4 +1,5 @@
-name: Build Electron EXE
+# .github/workflows/build.yml
+name: Build Electron App for Windows
 
 on:
   push:
@@ -9,27 +10,22 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build App
-        run: npm run build
+      - name: Build Electron App
+        run: npm run build && npm run make
 
-      - name: Export Static Files
-        run: npm run export
-
-      - name: Package Electron App
-        run: npm run dist
-
-      - name: Upload .exe
-        uses: actions/upload-artifact@v3
+      - name: Upload Windows .exe artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: ICLApp-Windows
-          path: dist/*.exe
+          name: warehouse-app-exe
+          path: out/make/squirrel.windows/x64/*.exe
