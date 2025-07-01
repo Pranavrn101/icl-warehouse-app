@@ -5,7 +5,7 @@
   "main": "electron.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export", 
+    "build": "next build", 
     "postinstall": "electron-builder install-app-deps",
     "electron": "electron .",
     "pack": "electron-builder --dir",
