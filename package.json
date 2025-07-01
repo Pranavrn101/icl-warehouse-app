@@ -9,7 +9,8 @@
     "dev": "next dev",
     "build": "next build",
     "electron": "electron .",
-    "pack": "electron-builder --dir",
+    "electron-dev": "concurrently \"npm run dev\" \"wait-on http://192.168.1.7:3000 && electron .\"",
+    "pack": "npm run build && electron-builder --dir",
     "start": "electron-forge start",
     "lint": "next lint",
     "dist": "npm run build && electron-builder",
@@ -20,14 +21,24 @@
     "appId": "com.icl.warehouse",
     "productName": "ICL Warehouse App",
     "files": [
-      "out",
-      "electron.js"
+      "out/**/*",
+      "electron.js",
+      "package.json",
+      "node_modules/**/*"
     ],
     "directories": {
-      "buildResources": "assets"
+      "buildResources": "assets",
+      "output": "release"
+    },
+    "extraMetadata": {
+      "main": "electron.js"
     },
     "win": {
       "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
     }
   },
   "dependencies": {
@@ -59,7 +70,7 @@
     "@radix-ui/react-toggle": "1.1.1",
     "@radix-ui/react-toggle-group": "1.1.1",
     "@radix-ui/react-tooltip": "1.1.6",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
@@ -70,6 +81,7 @@
     "lucide-react": "^0.454.0",
     "next": "15.2.4",
     "next-themes": "^0.4.4",
+    "puppeteer": "^24.11.2",
     "react": "^18.0.0",
     "react-day-picker": "8.10.1",
     "react-dom": "^18.0.0",
@@ -99,7 +111,7 @@
     "concurrently": "^9.2.0",
     "electron": "^36.6.0",
     "electron-builder": "^26.0.12",
-    "postcss": "^8.5",
+    "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "typescript": "^5",
     "wait-on": "^8.0.3"

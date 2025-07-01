@@ -21,7 +21,7 @@ export function WarehouseStaffDropdown({ selected, onChange }: Props) {
   useEffect(() => {
     const fetchStaff = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/warehouse-staff")
+        const response = await fetch("http://192.168.1.7:3005/api/warehouse-staff")
         const data = await response.json()
         setStaffList(data)
       } catch (error) {
