@@ -14,7 +14,7 @@ function createWindow() {
   });
 
   // Load the static file for warehouse-app
-  win.loadFile(path.join(__dirname, 'out/index.html'));
+mainWindow.loadURL(`file://${__dirname}/out/warehouse-app/index.html`);
 
   // Optional: open dev tools for debugging
   // win.webContents.openDevTools();

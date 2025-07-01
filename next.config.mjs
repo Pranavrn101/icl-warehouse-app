@@ -10,6 +10,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  assetPrefix: './',
+  trailingSlash: true, // ensures paths like /warehouse-app/index.html are used
 };
 
 export default nextConfig;
