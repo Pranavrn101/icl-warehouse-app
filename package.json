@@ -2,6 +2,8 @@
   "name": "icl-app-warehouse",
   "version": "0.1.0",
   "private": true,
+  "description": "ICL Warehouse App for tablet-based inspection and reporting",
+  "author": "Pranav R Nair",
   "main": "electron.js",
   "scripts": {
     "dev": "next dev",
