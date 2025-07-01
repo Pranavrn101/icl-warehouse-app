@@ -1,6 +1,6 @@
 "use client"
 
-import WarehouseApp from "../warehouse-app"
+import WarehouseApp from "./warehouse-app"
 import { ProtectedRoute } from "@/components/ProtectedRoute"
 
 
