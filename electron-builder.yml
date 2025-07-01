@@ -1,0 +1,12 @@
+appId: com.icl.logistics
+productName: ICLApp
+directories:
+  output: dist
+files:
+  - "!node_modules/.cache"
+  - "out/**/*"
+  - "electron/**/*"
+  - "package.json"
+win:
+  target: nsis
+  icon: public/icon.ico
