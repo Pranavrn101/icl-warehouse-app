@@ -5,15 +5,17 @@
   "main": "electron.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build", 
+    "build": "next build",
     "postinstall": "electron-builder install-app-deps",
     "electron": "electron .",
     "pack": "electron-builder --dir",
-    "start": "next start",
+    "start": "electron-forge start",
     "lint": "next lint",
-    "dist": "npm run build && electron-builder"
+    "dist": "npm run build && electron-builder",
+    "make": "electron-forge make",
+    "package": "electron-forge package"
   },
-      "build": {
+  "build": {
     "appId": "com.icl.warehouse",
     "productName": "ICL Warehouse App",
     "files": [
@@ -27,8 +29,6 @@
       "target": "nsis"
     }
   },
-
-
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "1.2.2",
@@ -63,6 +63,7 @@
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
     "date-fns": "3.0.0",
+    "electron-squirrel-startup": "^1.0.1",
     "embla-carousel-react": "8.5.1",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
@@ -83,12 +84,19 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@electron-forge/cli": "^7.8.1",
+    "@electron-forge/maker-deb": "^7.8.1",
+    "@electron-forge/maker-rpm": "^7.8.1",
+    "@electron-forge/maker-squirrel": "^7.8.1",
+    "@electron-forge/maker-zip": "^7.8.1",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.8.1",
+    "@electron-forge/plugin-fuses": "^7.8.1",
+    "@electron/fuses": "^1.8.0",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "concurrently": "^9.2.0",
     "electron": "^36.6.0",
-    "electron-builder": "^26.0.12",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5",
