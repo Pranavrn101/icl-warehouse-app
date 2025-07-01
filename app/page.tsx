@@ -1,11 +1,14 @@
-"use client"
+"use client";
 
-import WarehouseApp from "./warehouse-app"
-import { ProtectedRoute } from "@/components/ProtectedRoute"
-
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Page() {
-  return (<ProtectedRoute>
-      <WarehouseApp />
-    </ProtectedRoute>)
+  const router = useRouter();
+
+  useEffect(() => {
+    router.replace("/warehouse-app");
+  }, [router]);
+
+  return null;
 }

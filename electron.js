@@ -1,22 +1,23 @@
-const { app, BrowserWindow } = require("electron");
-const path = require("path");
+import { app, BrowserWindow } from 'electron';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 function createWindow() {
   const win = new BrowserWindow({
-    width: 1200,
+    width: 1280,
     height: 800,
     webPreferences: {
       contextIsolation: true,
     },
   });
 
-  // Load local Next.js build (after running `next build`)
-  win.loadURL("http://localhost:3000"); // During development
-  // win.loadFile("out/index.html"); // If using `next export`
+  // Load the static file for warehouse-app
+  win.loadFile(path.join(__dirname, 'out/index.html'));
+
+  // Optional: open dev tools for debugging
+  // win.webContents.openDevTools();
 }
 
 app.whenReady().then(createWindow);
-
-app.on("window-all-closed", () => {
-  if (process.platform !== "darwin") app.quit();
-});

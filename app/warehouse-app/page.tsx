@@ -15,8 +15,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
 import { WarehouseStaffDropdown } from "@/components/WarehouseStaffDropdown"
-import { toast } from "../components/ui/use-toast"
+import { toast } from "../../components/ui/use-toast"
 import { RefreshCcw } from "lucide-react"
+import { ProtectedRoute } from "@/components/ProtectedRoute";
 
 
 
@@ -336,6 +337,7 @@ const filteredJobCards = jobCards
     })
 
   return (
+    <ProtectedRoute>
     <div className="min-h-screen bg-gray-50 font-sans" style={{ fontFamily: "Inter, system-ui, sans-serif" }}>
       {/* Top App Bar */}
       <div className="text-white p-6 flex items-center gap-4 shadow-lg" style={{ backgroundColor: "#142d6a" }}>
@@ -917,6 +919,7 @@ const filteredJobCards = jobCards
         </div>
       </div>
     </div>
+    </ProtectedRoute>
   )
 }
 
