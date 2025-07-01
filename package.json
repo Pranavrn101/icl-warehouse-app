@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postinstall": "electron-builder install-app-deps",
     "electron": "electron .",
     "pack": "electron-builder --dir",
     "start": "electron-forge start",
@@ -97,6 +96,7 @@
     "@types/react-dom": "^19",
     "concurrently": "^9.2.0",
     "electron": "^36.6.0",
+    "electron-builder": "^26.0.12",
     "postcss": "^8.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5",
